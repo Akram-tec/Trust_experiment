@@ -1,0 +1,28 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+  {% if player.id_in_group == 1 %}
+    <p>
+        You chose to send Player B {{ original_sent_amount }}.
+        {% if is_first_round %}
+            After an 80% deduction due to an unforeseen event, the amount effectively sent to Player B was {{ effective_sent_amount }} points.
+        {% endif %}
+        Player B returned {{ group.sent_back_amount }}.
+    </p>
+  {% else %}
+    <p>
+        Player A sent you {{ effective_sent_amount }}.
+        {% if is_first_round %}
+            This amount, after adjustments and adding a fixed 10 points, was tripled to give an initial total of {{ tripled_amount }}.
+        {% else %}
+            Including the automatic 10 points, this amount was tripled to give you an initial total of {{ tripled_amount }}.
+        {% endif %}
+        After automatically deducting 20%, you chose to return {{ group.sent_back_amount }}.
+    </p>
+  {% endif %}
+
+    <p>Your total now in this round is: <strong>{{ player.payoff }}</strong>.</p>
+    {% if subsession.round_number > 1 %}
+    <p>Your payoff in the previous round was: <em>{{ previous_round_payoff }}</em>.</p>
+    {% endif %}
+  <p>{{ next_button }}</p>
+{{ endblock }}

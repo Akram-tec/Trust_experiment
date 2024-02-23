@@ -1,0 +1,13 @@
+{{ block title }}Compensation Notice{{ endblock }}
+{{ block content }}
+{% if player.id_in_group == 1 %}
+        <p>You will send <strong><em>60 points to Player B as compensation</strong></em> for the deduction in one of the previous rounds.</p>
+    {% else %}
+        <p>You have received <strong><em>60 points as compensation from Player A</strong></em>  due to a deduction in one of the previous rounds.</p>
+    {% endif %}
+  </p>
+  </p>
+    {{ formfields }}
+    {{ next_button }}
+
+{{ endblock }}

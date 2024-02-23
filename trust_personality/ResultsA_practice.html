@@ -1,0 +1,29 @@
+{% block title %}Results{% endblock %}
+{% block content %}
+  {% if player.id_in_group == 1 %}
+    <p>
+        You chose to send player B {{ group.additional_sent_amount }} plus an automatic 10 points deduction. Player B returned {{ group.sent_back_amount }}.
+    </p>
+    <p>
+       Your total in this round is: <strong>{{ player.payoff }}</strong>.
+    </p>
+    {% if subsession.round_number > 1 %}
+    <p>
+        Your payoff in the previous round was <em>{{ previous_round_payoff }} </em>.
+    </p>
+    {% endif %}
+  {% else %}
+    <p>
+        Player A sent you an additional {{ group.additional_sent_amount }} on top of the automatic 10 points. They were tripled, so you initially received a total of {{ tripled_amount }}.
+        After automatically deducting 20%, you chose to return {{ group.sent_back_amount }}.
+    </p>
+    <p>
+        Your total in this round is: <strong>{{ player.payoff }}</strong>.
+        {% if subsession.round_number > 1 %}
+    <p>
+        Your payoff in the previous round was <em>{{ previous_round_payoff }}</em>.
+        </p>
+        {% endif %}
+    {% endif %}
+  <p>{{ next_button }}</p>
+{% endblock %}

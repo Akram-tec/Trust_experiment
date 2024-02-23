@@ -1,0 +1,17 @@
+{{ block title }}Your Choice{{ endblock }}
+
+{{ block content }}
+  <p>
+      You are Player A representing company. Now you have {{C.COMPANY_ENDOWMENT}}.
+  <p>
+      How much will you send to Player B? 10 points are already deducted towards community developemt.
+  <p>
+      You can send all or part of the remaining points to Player B representing the community.
+  <p>
+      10 plus
+{{ formfields }}
+</p>
+{{ next_button }}
+</p>
+
+{{ endblock }}

@@ -1,0 +1,14 @@
+{{ block title }}Your Choice{{ endblock }}
+
+{{ block content }}
+    <p>
+        Player A, representing the company, sent you {{ adjusted_sent_amount }}, and you also received a fixed amount of 10 points.
+        In total, after tripling the both, you now have {{ tripled_amount }}.
+    <p>
+        However, 20% of these points will be automatically deducted as reciprocity.
+    <p>
+        You can choose to return an additional amount between <strong>{{ min_return }} to {{ max_return }}</strong> to Player A.
+    </p>
+    {{ formfields }}
+    {{ next_button }}
+{{ endblock }}

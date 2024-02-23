@@ -1,0 +1,30 @@
+{{ block title }}Your Role{{ endblock }}
+{{ block content }}
+    {{ if player.id_in_group == 1 }}
+    <p>
+        You are Player A, representing a company.
+    <p>
+        As Player A, you start with {{ C.COMPANY_ENDOWMENT}} each round.
+        You must invest at least 10 points in Player B, who represents the community.
+        Any amount you invest will be tripled for Player B, reflecting community growth.
+        Player B will independently decide how many tokens to return to you.
+        Your investments will significantly impact both your own and Player B's outcomes in the game.
+
+    </p>
+    {{ else }}
+    <p>
+        You are Player B, representing a community.
+    <p>
+        As Player B, each round you receive a tripled investment from Player A.
+        You're obliged to return 20% as a gesture of reciprocity for the company's actions.
+        Then, decide how many additional points to give back, considering your strategy and the broader implications of the company's actions.
+        Your choices shape future rounds and Player A's decisions.
+    </p>
+    {{ endif }}
+<p>
+    {{ formfields }}
+</p>
+<p>
+    {{ next_button }}
+</p>
+{{ endblock }}

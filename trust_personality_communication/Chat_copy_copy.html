@@ -1,0 +1,28 @@
+{% block content %}
+<div style="margin-bottom: 20px;">
+    {% if player.id_in_group == 1 %}
+        <p>You are Player A. You have the opportunity to communicate with Player B for the next 2 minutes regarding <em>deduction in the previous round.</em></p>
+    {% else %}
+        <p>You are Player B. You can chat for 2 minutes with Player A to discuss the <em>game and any deduction from previous round.</em></p>
+    {% endif %}
+</div>
+
+<div id="chat_container" style="width: 400px;">
+    {{ chat nickname=nickname }}
+</div>
+
+<!-- Initially hide the Next button using inline CSS -->
+<div id="next_button_container" style="display:none; margin-top: 20px;">
+    {{ next_button }}
+</div>
+
+<script>
+    // Function to reveal the Next button after 2 minutes (120000 milliseconds)
+    setTimeout(function() {
+        // Hide the chat interface or inform the user that the chat session has ended
+        document.getElementById('chat_container').style.display = 'none';
+        // Show the Next button
+        document.getElementById('next_button_container').style.display = 'block';
+    }, 120000); // 120000 milliseconds = 2 minutes
+</script>
+{% endblock %}
